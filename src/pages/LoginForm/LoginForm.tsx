@@ -38,11 +38,7 @@ const LoginForm: React.FC = () => {
   return (
     <div className="login-wrapper">
       <Card
-        title={
-          <Title level={3} >
-            Вход в систему
-          </Title>
-        }
+        title={<Title level={3}>Вход в систему</Title>}
         bordered={false}
         style={{ maxWidth: 400, width: "100%" }}
       >
