@@ -1,4 +1,5 @@
 import React from "react";
+import "./loginForm.css";
 import { useLoginMutation } from "../../store/api/authApi";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../store/slices/authSlice";
@@ -35,10 +36,10 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+    <div className="login-wrapper">
       <Card
         title={
-          <Title level={3} className="text-center m-0">
+          <Title level={3} >
             Вход в систему
           </Title>
         }
