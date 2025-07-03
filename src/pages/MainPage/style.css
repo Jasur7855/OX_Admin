@@ -6,7 +6,11 @@
   padding: 32px 16px;
   background-color: #f4f6f8;
 }
-
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
 .ant-typography {
   color: #2c3e50;
   font-weight: 600;

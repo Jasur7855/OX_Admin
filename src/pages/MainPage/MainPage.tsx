@@ -1,10 +1,12 @@
 import "./style.css";
 import { useEffect, useState } from "react";
-import { Table, Typography, Spin, Alert, Input } from "antd";
+import { Table, Typography, Spin, Alert, Input, Button } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useGetProductsQuery } from "../../store/api/productsApi";
 import { useDebounce } from "../../hooks/useDebounce";
-
+import { useDispatch } from "react-redux";
+import { logout } from "../../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 const { Title } = Typography;
 const { Search } = Input;
 
@@ -36,7 +38,13 @@ const ProductsPage = () => {
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
   const { data, isLoading, error } = useGetProductsQuery({
     page: 1,
     size: 1000,
@@ -109,7 +117,24 @@ const ProductsPage = () => {
 
   return (
     <div className="main" style={{ padding: "24px" }}>
-      <Title level={2}>Список продуктов</Title>
+      <div className="header">
+        <Button danger onClick={handleLogout}>
+          Выйти
+        </Button>
+      </div>
+      <div
+        className="header-bar"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 24,
+        }}
+      >
+        <Title level={2} style={{ margin: 0 }}>
+          Список продуктов
+        </Title>
+      </div>
 
       <Search
         placeholder="Поиск по названию продукта"
