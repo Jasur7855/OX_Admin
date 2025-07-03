@@ -1,3 +1,4 @@
+import "./style.css";
 import { useEffect, useState } from "react";
 import { Table, Typography, Spin, Alert, Input } from "antd";
 import type { ColumnsType } from "antd/es/table";
@@ -84,11 +85,7 @@ const ProductsPage = () => {
       dataIndex: "supplier",
       key: "supplier",
     },
-    {
-      title: "Штрихкод",
-      dataIndex: "barcode",
-      key: "barcode",
-    },
+
     {
       title: "Название продукта",
       dataIndex: "productName",
@@ -103,10 +100,15 @@ const ProductsPage = () => {
         return price ? price.toLocaleString("ru-RU") + " UZS" : "—";
       },
     },
+    {
+      title: "Штрихкод",
+      dataIndex: "barcode",
+      key: "barcode",
+    },
   ];
 
   return (
-    <div style={{ padding: "24px" }}>
+    <div className="main" style={{ padding: "24px" }}>
       <Title level={2}>Список продуктов</Title>
 
       <Search
