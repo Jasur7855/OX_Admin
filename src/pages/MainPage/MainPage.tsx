@@ -141,8 +141,8 @@ const ProductsPage = () => {
         allowClear
         size="large"
         style={{ marginBottom: 16, maxWidth: 400 }}
-        onSearch={(value) => setSearchTerm(value)}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onSearch={(value) => setSearchTerm(value.trim())}
+        onChange={(e) => setSearchTerm(e.target.value.trim())}
       />
 
       {error ? (
