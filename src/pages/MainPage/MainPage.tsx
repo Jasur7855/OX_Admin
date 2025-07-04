@@ -116,7 +116,7 @@ const ProductsPage = () => {
   ];
 
   return (
-    <div className="main" style={{ padding: "24px" }}>
+    <div className="main">
       <div className="header">
         <Button danger onClick={handleLogout}>
           Выйти
@@ -131,9 +131,7 @@ const ProductsPage = () => {
           marginBottom: 24,
         }}
       >
-        <Title level={2} style={{ margin: 0 }}>
-          Список продуктов
-        </Title>
+        <Title level={2}>Список продуктов</Title>
       </div>
 
       <Search
@@ -152,20 +150,22 @@ const ProductsPage = () => {
           <Spin size="large" />
         </div>
       ) : (
-        <Table<Product>
-          columns={columns}
-          dataSource={filteredProducts.slice(
-            (page - 1) * pageSize,
-            page * pageSize
-          )}
-          rowKey="id"
-          pagination={{
-            current: page,
-            pageSize,
-            total: filteredProducts.length,
-            onChange: (newPage) => setPage(newPage),
-          }}
-        />
+        <div className="table">
+          <Table<Product>
+            columns={columns}
+            dataSource={filteredProducts.slice(
+              (page - 1) * pageSize,
+              page * pageSize
+            )}
+            rowKey="id"
+            pagination={{
+              current: page,
+              pageSize,
+              total: filteredProducts.length,
+              onChange: (newPage) => setPage(newPage),
+            }}
+          />
+        </div>
       )}
     </div>
   );

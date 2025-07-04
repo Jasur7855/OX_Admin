@@ -6,10 +6,10 @@
   padding: 32px 16px;
   background-color: #f4f6f8;
 }
-.header{
-    width: 100%;
-    display: flex;
-    justify-content: end;
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 .ant-typography {
   color: #2c3e50;
@@ -21,7 +21,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 }
-
+.table {
+  overflow-x: auto;
+  width: "100%";
+}
 .ant-table-wrapper {
   width: 100%;
   max-width: 1200px;
@@ -34,14 +37,14 @@
 .ant-table-thead > tr > th {
   background-color: #f0f2f5;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 2vmin;
   padding: 12px;
   color: #3c3c3c;
 }
 
 .ant-table-tbody > tr > td {
   padding: 12px;
-  font-size: 14px;
+  font-size: 2vmin;
 }
 
 .ant-table-tbody > tr:hover {
@@ -50,4 +53,30 @@
 
 .ant-pagination {
   margin-top: 16px;
+}
+@media (max-width: 480px) {
+  .main {
+    padding: 16px 8px;
+  }
+
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ant-input-search {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .ant-table-wrapper {
+    padding: 12px;
+    box-shadow: none;
+    border-radius: 8px;
+  }
+
+  .ant-typography {
+    font-size: 20px;
+  }
 }
